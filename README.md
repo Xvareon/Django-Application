@@ -27,7 +27,7 @@
 - Add the code:" path('',include('YourAppName.urls')), "
 
 Your code should look like this:
-'''python
+```python
 
 from django.contrib import admin
 from django.urls import path, include
@@ -36,20 +36,18 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('webapp.urls')),
 ]
-
-'''
+```
 
 - Now, copy the urls.py and add that to your YourAppName folder
 - In that file, remove the admin import and the content of the urlpatterns like this:
 
-'''python
+```python
 from django.urls import path
 
 urlpatterns = [
 
 ]
-
-'''
+```
 
 ## DB SETUP
 - Configure your PostgreSQL management studio

@@ -52,6 +52,50 @@ urlpatterns = [
 ## DB SETUP
 - Configure your PostgreSQL management studio
 - Create a database and take note of its name
+- Create a terminal and pip install psycopg2 (for postgreSQL adapter)
+- Also pip install django-environ (for .env)
+- Create a .env file beside your settings.py and fill it with it like this (no single quotes):
+
+```
+SECRET_KEY=your_secret_key (can be seen in settings.py)
+DB_NAME=your_db_name
+DB_USER=your_db_user
+DB_PASSWORD=your_password
+DB_HOST=localhost
+DB_PORT=5432
+```
+- Add this .env file to your gitignore if you are using git
+Your settings.py should look like this:
+
+```python
+import environ
+env = environ.Env()
+environ.Env.read_env()
+
+...some of the default code
+
+# Your secret key
+SECRET_KEY = env("SECRET_KEY")
+
+...some of the default code
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env("DB_NAME"),
+        'USER': env("DB_USER"),
+        'PASSWORD': env("DB_PASSWORD"),
+        'HOST': env("DB_HOST"),
+        'PORT': env("DB_PORT"),
+    }
+}
+```
+
+- Get back to YourAppName folder and go to models.py and create your model (without ID)
+- Open a terminal and make sure you are in the correct directory that contains manage.py or use " cd YourProjectName "
+- Run the migrations by entering:" python manage.py makemigrations "
+- Also enter:" python manage.py migrate "
+- Check your database
 
 ## AND YOU ARE SET!
 - For more information, visit this [link](https://stackpython.medium.com/how-to-start-django-project-with-a-database-postgresql-aaa1d74659d8)

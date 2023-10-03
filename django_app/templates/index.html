@@ -12,6 +12,12 @@
 
     <a href="{% url 'index' %}"><h1> Product List </h1></a><br><br>
 
+    <form method="GET" action="{% url 'search' %}">
+        <input type="text" name="q" placeholder="Search by name">
+        <button type="submit">Search</button>
+    </form>
+    <br>
+
     <a href="{% url 'create' %}"><button>Create Product</button></a><br><br>
     <table border="1">
         <tr>

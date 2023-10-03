@@ -6,7 +6,12 @@ from .models import Product
 
 
 def index(request):
-    products = Product.objects.all().order_by('id')
+    query = request.GET.get('q')
+    if query:
+        products = Product.objects.filter(name__icontains=query).order_by('id')
+    else:
+        products = Product.objects.all().order_by('id')
+
     return render(request, "index.html", {'products': products})
 
 

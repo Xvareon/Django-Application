@@ -10,7 +10,7 @@
 
 <body>
 
-    <h1>Product List</h1><br>
+    <a href="{% url 'index' %}"><h1> Product List </h1></a><br><br>
 
     <a href="{% url 'create' %}"><button>Create Product</button></a><br><br>
     <table border="1">
@@ -36,7 +36,7 @@
                 <td>{{ product.description }}</td>
 
                 <td>View</td>
-                <td>Edit</td>
+                <td><a href="{% url 'update' product.id %}">Edit</a></td>
                 <td>Delete</td>
             </tr>
         {% endfor %}

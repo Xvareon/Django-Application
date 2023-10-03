@@ -1,12 +1,12 @@
-from django.shortcuts import render, redirect
-from .forms import ProductCreationForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import ProductCreationForm, ProductUpdateForm
 from .models import Product
 
 # Create your views here.
 
 
 def index(request):
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('id')
     return render(request, "index.html", {'products': products})
 
 
@@ -20,3 +20,17 @@ def create(request):
         form = ProductCreationForm()
 
     return render(request, "create.html", {'form': form})
+
+
+def update(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+
+    if request.method == 'POST':
+        form = ProductUpdateForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = ProductUpdateForm(instance=product)
+
+    return render(request, "update.html", {'form': form, 'product': product})

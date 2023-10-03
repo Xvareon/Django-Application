@@ -5,19 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Product</title>
+    <title>Update Product</title>
 </head>
 
 <body>
 
-    <a href="{% url 'create' %}"><h1> Create a Product </h1></a><br><br>
+    <a href="{% url 'update' product.id %}"><h1> Update Product </h1></a><br><br>
 
     <a href="{% url 'index' %}"><button>Go back to Product List</button></a><br><br>
 
     <form method="POST">
         {% csrf_token %}
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" value="{{ product.id }}" readonly><br><br>
         {{ form.as_p }}
-        <input type="submit" value="Submit">
+        <input type="submit" value="Update">
     </form>
 
 </body>

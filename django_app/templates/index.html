@@ -37,7 +37,12 @@
 
                 <td>View</td>
                 <td><a href="{% url 'update' product.id %}">Edit</a></td>
-                <td>Delete</td>
+                <td>
+                <form action="{% url 'delete' product.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+                </td>
             </tr>
         {% endfor %}
     </table>

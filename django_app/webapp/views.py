@@ -34,3 +34,13 @@ def update(request, pk):
         form = ProductUpdateForm(instance=product)
 
     return render(request, "update.html", {'form': form, 'product': product})
+
+
+def delete(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+
+    if request.method == 'POST':
+        product.delete()
+        return redirect('index')
+
+    return redirect('index')

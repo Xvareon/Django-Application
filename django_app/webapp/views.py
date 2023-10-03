@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from .forms import ProductCreationForm
 from .models import Product
 
 # Create your views here.
@@ -11,20 +12,11 @@ def index(request):
 
 def create(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        variant = request.POST.get('variant')
-        qty = request.POST.get('qty')
-        price = request.POST.get('price')
-        description = request.POST.get('description')
+        form = ProductCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = ProductCreationForm()
 
-        Product.objects.create(
-            name=name,
-            variant=variant,
-            qty=qty,
-            price=price,
-            description=description
-        )
-
-        return redirect('index')
-
-    return render(request, "create.html")
+    return render(request, "create.html", {'form': form})

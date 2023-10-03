@@ -10,7 +10,37 @@
 
 <body>
 
-    <h1>Hello World!<h2>
+    <h1>Product List</h1><br>
+
+    <a href="{% url 'create' %}"><button>Create Product</button></a><br><br>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Variant</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Description</th>
+
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.variant }}</td>
+                <td>{{ product.qty }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.description }}</td>
+
+                <td>View</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        {% endfor %}
+    </table>
 
 </body>
 

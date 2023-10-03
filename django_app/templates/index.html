@@ -35,7 +35,7 @@
                 <td>{{ product.price }}</td>
                 <td>{{ product.description }}</td>
 
-                <td>View</td>
+                <td><a href="{% url 'view' product.id %}">View</a></td>
                 <td><a href="{% url 'update' product.id %}">Edit</a></td>
                 <td>
                 <form action="{% url 'delete' product.id %}" method="post">

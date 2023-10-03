@@ -44,3 +44,8 @@ def delete(request, pk):
         return redirect('index')
 
     return redirect('index')
+
+
+def view(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, "view.html", {'product': product})

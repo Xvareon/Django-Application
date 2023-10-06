@@ -1,4 +1,4 @@
-## Django application made with Python, PostgreSQL.
+## Django application made with Python, psycopg2, and PostgreSQL.
 
 ## PROJECT DEPENDENCIES
 - [Python 3 +](https://www.python.org/downloads/)
@@ -101,8 +101,8 @@ DATABASES = {
 - For more information, visit this [link](https://stackpython.medium.com/how-to-start-django-project-with-a-database-postgresql-aaa1d74659d8)
 
 ## =================================================
-======
-Django
+
+# Django
 ======
 
 Django is a high-level Python web framework that encourages rapid development
@@ -133,14 +133,14 @@ ticket here: https://code.djangoproject.com/newticket
 To get more help:
 
 * Join the ``#django`` channel on ``irc.libera.chat``. Lots of helpful people
-  hang out there. `Webchat is available <https://web.libera.chat/#django>`_.
+  hang out there. `Webchat is available https://web.libera.chat/#django.
 
 * Join the django-users mailing list, or read the archives, at
   https://groups.google.com/group/django-users.
 
-* Join the `Django Discord community <https://discord.gg/xcRH6mN4fa>`_.
+* Join the `Django Discord community https://discord.gg/xcRH6mN4fa.
 
-* Join the community on the `Django Forum <https://forum.djangoproject.com/>`_.
+* Join the community on the `Django Forum` https://forum.djangoproject.com/.
 
 To contribute to Django:
 

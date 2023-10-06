@@ -1,4 +1,4 @@
-## Django application made with Python, psycopg2, and PostgreSQL.
+## Django application made with Python, psycopg2, Jinja and PostgreSQL.
 
 ## PROJECT DEPENDENCIES
 - [Python 3 +](https://www.python.org/downloads/)

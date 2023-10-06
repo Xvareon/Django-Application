@@ -65,9 +65,12 @@ DB_HOST=localhost
 DB_PORT=5432
 ```
 - Add this .env file to your gitignore if you are using git
+
 Your settings.py should look like this:
 
 ```python
+#settings.py
+
 import environ
 env = environ.Env()
 environ.Env.read_env()

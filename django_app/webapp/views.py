@@ -12,7 +12,7 @@ def index(request):
     else:
         products = Product.objects.all().order_by('id')
 
-    return render(request, "index.html", {'products': products})
+    return render(request, "products-index.html", {'products': products})
 
 
 def create(request):
@@ -24,7 +24,7 @@ def create(request):
     else:
         form = ProductCreationForm()
 
-    return render(request, "create.html", {'form': form})
+    return render(request, "products-create.html", {'form': form})
 
 
 def update(request, pk):
@@ -38,7 +38,7 @@ def update(request, pk):
     else:
         form = ProductUpdateForm(instance=product)
 
-    return render(request, "update.html", {'form': form, 'product': product})
+    return render(request, "products-update.html", {'form': form, 'product': product})
 
 
 def delete(request, pk):
@@ -53,4 +53,4 @@ def delete(request, pk):
 
 def view(request, pk):
     product = get_object_or_404(Product, pk=pk)
-    return render(request, "view.html", {'product': product})
+    return render(request, "products-view.html", {'product': product})
